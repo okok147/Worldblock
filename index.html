@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Worldblock Protocol</title>
+    <meta
+      name="description"
+      content="Worldblock is a blockchain-based protocol for global resource management, sharing, governance, and decentralized knowledge exchange."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top">
+          <span class="brand-mark">WB</span>
+          <span class="brand-copy">
+            <strong>Worldblock</strong>
+            <span>Protocol Whitepaper</span>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#protocol">Protocol</a>
+          <a href="#maps">Maps</a>
+          <a href="#governance">Governance</a>
+          <a href="#economy">Economy</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#use-cases">Use Cases</a>
+          <a href="#references">References</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero section" data-section="top">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">
+              Blockchain-Based Protocol for Global Resource Management and
+              Sharing
+            </p>
+            <h1>
+              Coordinate resources, trust, and community action on shared
+              infrastructure.
+            </h1>
+            <p class="hero-lede">
+              Worldblock introduces a borderless protocol for mapping issues,
+              visualizing real-world resources, and enabling transparent
+              exchange across knowledge, services, products, and local
+              initiatives.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#protocol"
+                >Read the Protocol</a
+              >
+              <a class="button button-secondary" href="#economy"
+                >Explore Token Design</a
+              >
+            </div>
+            <div class="hero-highlights">
+              <article>
+                <span>Dual-map system</span>
+                <strong
+                  >Issue visibility + real-world resource transparency</strong
+                >
+              </article>
+              <article>
+                <span>Native coordination</span>
+                <strong>
+                  <span class="inline-token">$WBC</span> for exchange,
+                  <span class="inline-token inline-token-alt">$WBV</span> for
+                  trust-weighted governance
+                </strong>
+              </article>
+              <article>
+                <span>Community utility</span>
+                <strong
+                  >Knowledge, rentals, services, and local project
+                  funding</strong
+                >
+              </article>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="visual-stage">
+              <div class="visual-glow visual-glow-a"></div>
+              <div class="visual-glow visual-glow-b"></div>
+
+              <article class="map-card issue-card">
+                <div class="map-card-header">
+                  <span class="tag">Map 01</span>
+                  <strong>Issue Map</strong>
+                </div>
+                <p>
+                  Tracks global challenges, unmet needs, and coordinated
+                  intervention priorities.
+                </p>
+                <ul>
+                  <li>Climate resilience</li>
+                  <li>Urban infrastructure</li>
+                  <li>Local scarcity signals</li>
+                </ul>
+              </article>
+
+              <article class="map-card resource-card">
+                <div class="map-card-header">
+                  <span class="tag">Map 02</span>
+                  <strong>Real-World Resources Map</strong>
+                </div>
+                <p>
+                  Shows available assets, knowledge, services, spaces, and
+                  capital in context.
+                </p>
+                <ul>
+                  <li>Equipment and tools</li>
+                  <li>Service providers</li>
+                  <li>Educational contributions</li>
+                </ul>
+              </article>
+
+              <article class="signal-panel">
+                <div>
+                  <span>Trust layer</span>
+                  <strong
+                    >Soul-bound
+                    <span class="inline-token inline-token-dark"
+                      >$WBV</span
+                    ></strong
+                  >
+                </div>
+                <div>
+                  <span>Settlement layer</span>
+                  <strong
+                    ><span class="inline-token inline-token-dark">$WBC</span>
+                    exchange utility</strong
+                  >
+                </div>
+                <div>
+                  <span>Backing concept</span>
+                  <strong>Initial supply financially backed by stETH</strong>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="abstract-card reveal">
+          <div class="abstract-label">Abstract</div>
+          <p>
+            Worldblock extends blockchain coordination beyond conventional
+            resource management into personal resource sharing and decentralized
+            learning. The protocol combines transparent mapping, community
+            governance, adaptive token supply, and trust-based reputation to
+            support a more sustainable and equitable model for organizing value.
+          </p>
+        </section>
+
+        <section
+          class="section two-column"
+          id="protocol"
+          data-section="protocol"
+        >
+          <div class="section-heading reveal">
+            <p class="eyebrow">01. Protocol</p>
+            <h2>
+              A shared operating layer for resources, knowledge, and action.
+            </h2>
+          </div>
+          <div class="section-grid">
+            <article class="panel reveal">
+              <h3>Introduction</h3>
+              <p>
+                The protocol responds to a growing need for decentralized
+                resource management. Its goal is to transform both global and
+                personal coordination, creating a versatile ecosystem for
+                exchange, collaboration, and problem-solving.
+              </p>
+            </article>
+            <article class="panel reveal">
+              <h3>What Worldblock Does</h3>
+              <p>
+                Worldblock is designed to make resource flows more transparent,
+                more efficient, and easier to coordinate across borders. The
+                same infrastructure also supports peer-to-peer learning, service
+                exchange, and community-led initiatives.
+              </p>
+            </article>
+            <article class="panel reveal">
+              <h3>Core Premise</h3>
+              <p>
+                If issues, capabilities, and trust signals become visible in one
+                interoperable system, communities can respond faster, fund
+                better ideas, and allocate underused resources more
+                intelligently.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="maps" data-section="maps">
+          <div class="section-heading reveal">
+            <p class="eyebrow">02. Dual-Map Visualization</p>
+            <h2>
+              See the problem landscape and the available capacity at the same
+              time.
+            </h2>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-panel reveal">
+              <div class="feature-index">A</div>
+              <h3>Issue Map</h3>
+              <p>
+                The Issue Map highlights global challenges, local bottlenecks,
+                and collective priorities. It is intended to make needs legible
+                so community action can be proposed, funded, and tracked with
+                greater precision.
+              </p>
+            </article>
+            <article class="feature-panel reveal">
+              <div class="feature-index">B</div>
+              <h3>Real-World Resources Map</h3>
+              <p>
+                The Real-World Resources Map provides transparency into where
+                resources actually exist, from physical assets and spaces to
+                knowledge, labor, and capital available for deployment.
+              </p>
+            </article>
+            <article class="feature-panel reveal feature-panel-wide">
+              <div class="feature-index">C</div>
+              <h3>Resource-Sharing Platform</h3>
+              <p>
+                On top of the visualization layer, Worldblock supports listing,
+                renting, and exchanging diverse resources. The platform is
+                designed for practical utility: tools, products, freelance
+                services, educational content, and community projects can all
+                flow through one trust-aware network.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="governance" data-section="governance">
+          <div class="section-heading reveal">
+            <p class="eyebrow">03. Community Engagement and Governance</p>
+            <h2>Participation is driven by contribution, not just capital.</h2>
+          </div>
+          <div class="governance-layout">
+            <article class="panel reveal token-panel">
+              <span class="token-chip">$WBC</span>
+              <h3>Coordination and exchange</h3>
+              <p>
+                <span class="inline-token">$WBC</span> functions as the
+                protocol's native token for funding initiatives, settling
+                marketplace transactions, and supporting the broader
+                resource-sharing economy.
+              </p>
+            </article>
+            <article class="panel reveal token-panel">
+              <span class="token-chip token-chip-alt">$WBV</span>
+              <h3>Soul-bound voting power</h3>
+              <p>
+                <span class="inline-token inline-token-alt">$WBV</span>
+                represents contribution-based voting power. Because it is
+                soul-bound, the signal is intended to stay attached to a
+                participant's on-platform reputation rather than becoming a
+                transferable commodity.
+              </p>
+            </article>
+            <article class="trust-flow reveal">
+              <h3>Trust Flow</h3>
+              <div class="flow-line">
+                <span>Contribute</span>
+                <span>Earn $WBV</span>
+                <span>Signal trust</span>
+                <span>Vote and filter</span>
+              </div>
+              <p>
+                The design uses
+                <span class="inline-token inline-token-alt">$WBV</span> to
+                strengthen governance and improve exchange quality, helping
+                users identify trustworthy counterparties across the
+                <span class="inline-token">$WBC</span>
+                ecosystem.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="economy" data-section="economy">
+          <div class="section-heading reveal">
+            <p class="eyebrow">04. Economic Model</p>
+            <h2>
+              A two-token economy designed for utility, trust, and adaptive
+              growth.
+            </h2>
+          </div>
+          <div class="economy-layout">
+            <article class="panel reveal">
+              <h3>Initial Backing</h3>
+              <p>
+                The paper describes the initial supply of Worldblock as
+                financially backed by stETH, providing a stabilizing base for
+                the launch phase of the economy.
+              </p>
+            </article>
+            <article class="panel reveal">
+              <h3>Adaptive Supply Mechanism</h3>
+              <p>
+                <span class="inline-token">$WBC</span> supply adjusts in
+                response to market demand, aiming to support resilience as
+                protocol usage expands across exchange, coordination, and
+                funding activity.
+              </p>
+            </article>
+            <article class="metric-panel reveal">
+              <div>
+                <span>Utility token</span>
+                <strong>$WBC</strong>
+              </div>
+              <div>
+                <span>Reputation token</span>
+                <strong>$WBV</strong>
+              </div>
+              <div>
+                <span>Governance basis</span>
+                <strong>Contribution-weighted trust</strong>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="architecture" data-section="architecture">
+          <div class="section-heading reveal">
+            <p class="eyebrow">05. Technical Architecture</p>
+            <h2>
+              Built for scalability, security, and decentralized coordination.
+            </h2>
+          </div>
+          <div class="architecture-grid">
+            <article class="architecture-card reveal">
+              <span>Experience Layer</span>
+              <h3>Maps, marketplace, and governance interfaces</h3>
+              <p>
+                Human-readable access to issues, resources, proposals, listings,
+                and votes.
+              </p>
+            </article>
+            <article class="architecture-card reveal">
+              <span>Protocol Layer</span>
+              <h3>Resource exchange and proposal logic</h3>
+              <p>
+                Smart contract flows for listings, funding, participation, and
+                settlement.
+              </p>
+            </article>
+            <article class="architecture-card reveal">
+              <span>Trust Layer</span>
+              <h3>Soul-bound contribution signaling</h3>
+              <p>
+                $WBV anchors reputation, voting power, and marketplace trust
+                filtering.
+              </p>
+            </article>
+            <article class="architecture-card reveal">
+              <span>Economic Layer</span>
+              <h3>Adaptive supply and token utility</h3>
+              <p>
+                $WBC supports payments, incentives, and protocol-native economic
+                activity.
+              </p>
+            </article>
+            <article class="architecture-card reveal">
+              <span>Network Layer</span>
+              <h3>Secure and scalable settlement</h3>
+              <p>
+                The architecture is framed around resilient, transparent, and
+                decentralized operation.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="use-cases" data-section="use-cases">
+          <div class="section-heading reveal">
+            <p class="eyebrow">06. Use Cases</p>
+            <h2>
+              From decentralized learning to neighborhood-level coordination.
+            </h2>
+          </div>
+          <div class="use-case-grid">
+            <article class="use-case-card reveal">
+              <h3>Decentralized Knowledge System</h3>
+              <p>
+                Open-source educational content, collaborative self-learning,
+                and contributor recognition enhanced by $WBV credibility
+                signals.
+              </p>
+            </article>
+            <article class="use-case-card reveal">
+              <h3>Business Exchange</h3>
+              <p>
+                Services and products can be transacted in $WBC, while $WBV
+                helps surface reliable providers and higher-quality offers.
+              </p>
+            </article>
+            <article class="use-case-card reveal">
+              <h3>Resource Rental Marketplace</h3>
+              <p>
+                Tools, equipment, and spaces become rentable assets within a
+                transparent reputation-aware marketplace.
+              </p>
+            </article>
+            <article class="use-case-card reveal">
+              <h3>Skill Sharing and Freelance Services</h3>
+              <p>
+                Professionals and hobbyists can exchange skills with tokenized
+                settlement and community-backed endorsements.
+              </p>
+            </article>
+            <article class="use-case-card reveal">
+              <h3>Local Community Projects</h3>
+              <p>
+                Urban development, environmental conservation, and cultural
+                initiatives can be proposed, funded, and coordinated with
+                stronger trust signals.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="section impact-section"
+          id="impact"
+          data-section="impact"
+        >
+          <div class="section-heading reveal">
+            <p class="eyebrow">07. Impact</p>
+            <h2>
+              A protocol vision for more equitable and sustainable resource
+              coordination.
+            </h2>
+          </div>
+          <div class="impact-layout">
+            <article class="impact-quote reveal">
+              <p>
+                Worldblock frames blockchain as an everyday coordination tool,
+                not only a financial rail. Its broader ambition is to bring
+                transparency, trust, and collective agency into how resources
+                are shared and mobilized.
+              </p>
+            </article>
+            <article class="panel reveal">
+              <h3>Conclusion</h3>
+              <p>
+                The protocol proposes a substantial shift in how communities
+                organize access to information, labor, capital, and shared
+                infrastructure. If executed well, it could expand participation
+                while reducing opacity in global and local exchange.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section
+          class="section references-section"
+          id="references"
+          data-section="references"
+        >
+          <div class="section-heading reveal">
+            <p class="eyebrow">08. References</p>
+            <h2>Foundational work</h2>
+          </div>
+          <article class="reference-card reveal">
+            <p>
+              Nakamoto, Satoshi.
+              <em>Bitcoin: A Peer-to-Peer Electronic Cash System.</em>
+              <a href="http://bitcoin.org/bitcoin.pdf"
+                >bitcoin.org/bitcoin.pdf</a
+              >, 2008.
+            </p>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
