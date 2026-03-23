@@ -3,315 +3,488 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Worldblock</title>
+    <title>Worldblock Protocol Simulator</title>
     <meta
       name="description"
-      content="Worldblock is a blockchain protocol for mapping global issues, unlocking real-world resources, and coordinating trust-weighted exchange."
+      content="Worldblock protocol simulator with dual maps, WBC exchange, WBV governance, knowledge rewards, and adaptive supply."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
   </head>
   <body>
-    <header class="site-header">
-      <div class="site-header__inner">
-        <a class="brand" href="#top" aria-label="Worldblock home">
-          <span class="brand-mark">WB</span>
-          <span class="brand-copy">
-            <strong>Worldblock</strong>
-            <span>Protocol whitepaper</span>
-          </span>
-        </a>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-block">
+          <div class="brand">
+            <span class="brand-mark">WB</span>
+            <div class="brand-copy">
+              <strong>Worldblock</strong>
+              <span>Protocol simulator</span>
+            </div>
+          </div>
+          <p class="sidebar-note">
+            Browser-based implementation of the supplied whitepaper flows.
+          </p>
+        </div>
 
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#top">Overview</a>
-          <a href="#system">System</a>
-          <a href="#economy">Economy</a>
-          <a href="#applications">Applications</a>
-          <a href="#final">Build</a>
+        <nav class="sidebar-nav" aria-label="Primary">
+          <button class="nav-button is-active" data-jump="#command-center">
+            Command center
+          </button>
+          <button class="nav-button" data-jump="#maps">Dual maps</button>
+          <button class="nav-button" data-jump="#exchange">Exchange</button>
+          <button class="nav-button" data-jump="#governance">Governance</button>
+          <button class="nav-button" data-jump="#knowledge">Knowledge</button>
+          <button class="nav-button" data-jump="#adaptive">
+            Adaptive supply
+          </button>
         </nav>
-      </div>
-    </header>
 
-    <main>
-      <section class="hero" id="top" data-section="top">
-        <div class="hero-inner">
-          <p class="hero-kicker reveal reveal-delay-1">
-            Blockchain-based protocol
-          </p>
-          <h1 class="hero-brand reveal reveal-delay-2">Worldblock</h1>
-          <p class="hero-headline reveal reveal-delay-3">
-            Map needs. Unlock idle resources.
-          </p>
-          <p class="hero-copy reveal reveal-delay-4">
-            A planetary protocol for issue visibility, borderless exchange, and
-            contribution-weighted trust.
-          </p>
-
-          <div class="hero-actions reveal reveal-delay-5">
-            <a class="button button-primary" href="#system">See the system</a>
-            <a
-              class="button button-secondary"
-              href="https://github.com/okok147/Worldblock"
-              target="_blank"
-              rel="noreferrer"
-            >
-              View GitHub
-            </a>
+        <section class="sidebar-panel">
+          <p class="panel-label">Operator</p>
+          <h2 id="operator-name">Atlas Operator</h2>
+          <div class="wallet-grid">
+            <div>
+              <span>WBC wallet</span>
+              <strong id="wallet-wbc">0 WBC</strong>
+            </div>
+            <div>
+              <span>WBV trust</span>
+              <strong id="wallet-wbv">0 WBV</strong>
+            </div>
           </div>
-        </div>
-
-        <p class="hero-credit">Imagery: NASA Earth at Night</p>
-      </section>
-
-      <section class="intro-band reveal">
-        <div class="section-frame">
-          <p>
-            Worldblock extends blockchain coordination beyond finance into
-            knowledge sharing, marketplace exchange, resource rental, and local
-            community execution.
+          <p class="sidebar-meta" id="contribution-count">
+            0 contribution paths recorded.
           </p>
-        </div>
-      </section>
+          <p class="sidebar-meta">
+            WBV is soul-bound inside this prototype and never transferable.
+          </p>
+          <button class="ghost-button" id="reset-demo">Reset simulation</button>
+        </section>
 
-      <section class="section section-system" id="system" data-section="system">
-        <div class="section-frame">
-          <div class="section-heading reveal">
-            <p class="section-label">System</p>
-            <h2>Two maps turn a global problem into a readable surface.</h2>
-            <p>
-              Worldblock makes need and capacity visible at the same time, so
-              coordination happens against actual resources instead of isolated
-              market signals.
+        <section class="sidebar-panel sidebar-panel--media">
+          <img src="assets/blue-marble.jpg" alt="Blue Marble image of Earth" />
+          <p>
+            Worldblock connects issues, resources, proposals, and learning on
+            one persistent protocol surface.
+          </p>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <header class="workspace-header" id="command-center">
+          <div>
+            <p class="eyebrow">Worldblock protocol simulator</p>
+            <h1>Command center</h1>
+            <p class="workspace-copy">
+              Issue visibility, resource routing, WBC exchange, WBV trust, and
+              adaptive supply in one working browser application.
             </p>
           </div>
 
-          <div class="system-layout">
-            <div class="orbital-visual reveal">
-              <figure>
-                <img
-                  src="assets/blue-marble.jpg"
-                  alt="Blue Marble image of Earth"
+          <div class="workspace-actions">
+            <button class="button button-primary" data-jump="#listing-form">
+              List resource
+            </button>
+            <button class="button button-secondary" data-jump="#proposal-form">
+              New proposal
+            </button>
+            <button class="button button-secondary" data-jump="#knowledge-form">
+              Add knowledge
+            </button>
+          </div>
+        </header>
+
+        <div class="status-banner" id="status-banner">
+          Protocol state synchronized locally.
+        </div>
+
+        <section class="metric-strip" aria-label="Network metrics">
+          <article class="metric">
+            <span>Circulating WBC</span>
+            <strong id="metric-circulating">0</strong>
+          </article>
+          <article class="metric">
+            <span>Treasury WBC</span>
+            <strong id="metric-treasury">0</strong>
+          </article>
+          <article class="metric">
+            <span>Demand index</span>
+            <strong id="metric-demand">0</strong>
+          </article>
+          <article class="metric">
+            <span>stETH reserve</span>
+            <strong id="metric-steth">0</strong>
+          </article>
+          <article class="metric">
+            <span>Trusted providers</span>
+            <strong id="metric-trusted">0</strong>
+          </article>
+        </section>
+
+        <section class="workspace-grid">
+          <section class="panel panel-map" id="maps">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label">Dual maps</p>
+                <h2>Issue and resource surface</h2>
+              </div>
+
+              <div class="segmented" role="tablist" aria-label="Map mode">
+                <button
+                  class="segmented-button is-active"
+                  id="mode-issues"
+                  data-mode="issues"
+                  type="button"
+                >
+                  Issue map
+                </button>
+                <button
+                  class="segmented-button"
+                  id="mode-resources"
+                  data-mode="resources"
+                  type="button"
+                >
+                  Resource map
+                </button>
+              </div>
+            </div>
+
+            <div class="panel-toolbar">
+              <label class="field-inline">
+                <span>Region</span>
+                <select id="region-filter"></select>
+              </label>
+              <p class="toolbar-note" id="map-summary">
+                Select a node to inspect protocol actions.
+              </p>
+              <button class="ghost-button" id="focus-linked" type="button">
+                Focus linked nodes
+              </button>
+            </div>
+
+            <div class="world-map">
+              <div class="world-map__label">
+                <strong id="map-mode-label">Issue map</strong>
+                <span id="map-mode-copy">Tracking planetary bottlenecks.</span>
+              </div>
+              <div class="world-map__surface" id="map-surface"></div>
+            </div>
+          </section>
+
+          <aside class="panel panel-inspector" id="inspector">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label">Inspector</p>
+                <h2 id="inspector-title">Select a node</h2>
+              </div>
+              <span class="status-chip" id="inspector-status">
+                Awaiting input
+              </span>
+            </div>
+
+            <p class="inspector-copy" id="inspector-copy">
+              Choose an issue or resource node to inspect local demand, trust
+              requirements, and linked protocol actions.
+            </p>
+
+            <dl class="detail-grid" id="detail-grid"></dl>
+
+            <div class="action-group">
+              <button
+                class="button button-primary"
+                id="primary-action"
+                type="button"
+              >
+                Select a node
+              </button>
+              <button
+                class="button button-secondary"
+                id="secondary-action"
+                type="button"
+              >
+                Open response flow
+              </button>
+            </div>
+
+            <div class="related-block">
+              <div class="subhead">
+                <h3>Linked nodes</h3>
+                <span id="related-count">0</span>
+              </div>
+              <div class="linked-list" id="linked-list"></div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="operations-grid">
+          <section class="panel" id="exchange">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label">Exchange</p>
+                <h2>Marketplace settled in WBC</h2>
+              </div>
+            </div>
+
+            <div class="panel-toolbar panel-toolbar--stack">
+              <label class="field-inline field-inline--range">
+                <span>Minimum provider WBV</span>
+                <input
+                  id="exchange-trust-filter"
+                  type="range"
+                  min="0"
+                  max="60"
+                  step="2"
                 />
-                <figcaption>Blue Marble, NASA Earth Science</figcaption>
-              </figure>
+              </label>
+              <span class="toolbar-value" id="exchange-trust-output"
+                >0 WBV</span
+              >
             </div>
 
-            <div class="system-steps">
-              <article class="system-step reveal">
-                <span class="step-index">01</span>
-                <div>
-                  <h3>Issue Map</h3>
-                  <p>
-                    Tracks unmet needs, local bottlenecks, and intervention
-                    pressure so communities can see where action matters.
-                  </p>
-                </div>
-              </article>
+            <div class="row-list" id="exchange-list"></div>
 
-              <article class="system-step reveal">
-                <span class="step-index">02</span>
-                <div>
-                  <h3>Real-World Resources Map</h3>
-                  <p>
-                    Shows where equipment, services, knowledge, spaces, and
-                    capital already exist and can be routed.
-                  </p>
-                </div>
-              </article>
+            <form class="inline-form" id="listing-form">
+              <div class="form-head">
+                <h3>Create a resource listing</h3>
+                <p>
+                  Listings update the resource map, marketplace, and trust graph
+                  immediately.
+                </p>
+              </div>
 
-              <article class="system-step reveal">
-                <span class="step-index">03</span>
-                <div>
-                  <h3>Shared Exchange Layer</h3>
-                  <p>
-                    Lets proposals, rentals, service transactions, and learning
-                    move through one trust-aware protocol surface.
-                  </p>
-                </div>
-              </article>
+              <div class="form-grid">
+                <label class="field">
+                  <span>Title</span>
+                  <input id="listing-title" name="title" required />
+                </label>
 
-              <article class="system-step reveal">
-                <span class="step-index">04</span>
-                <div>
-                  <h3>Contribution-Based Governance</h3>
-                  <p>
-                    Keeps voting power close to participation, not pure capital,
-                    so reputation compounds into usable civic trust.
-                  </p>
-                </div>
-              </article>
+                <label class="field">
+                  <span>Type</span>
+                  <select id="listing-type" name="type" required>
+                    <option value="Equipment">Equipment</option>
+                    <option value="Service">Service</option>
+                    <option value="Space">Space</option>
+                    <option value="Knowledge">Knowledge</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>Region</span>
+                  <select id="listing-region" name="region" required></select>
+                </label>
+
+                <label class="field">
+                  <span>Price in WBC</span>
+                  <input
+                    id="listing-price"
+                    name="price"
+                    type="number"
+                    min="10"
+                    step="1"
+                    value="60"
+                    required
+                  />
+                </label>
+
+                <label class="field">
+                  <span>Minimum requester WBV</span>
+                  <input
+                    id="listing-floor"
+                    name="floor"
+                    type="number"
+                    min="0"
+                    step="1"
+                    value="12"
+                    required
+                  />
+                </label>
+
+                <label class="field">
+                  <span>Linked issue</span>
+                  <select id="listing-issue" name="issue"></select>
+                </label>
+              </div>
+
+              <label class="field">
+                <span>Summary</span>
+                <textarea
+                  id="listing-summary"
+                  name="summary"
+                  rows="3"
+                  required
+                ></textarea>
+              </label>
+
+              <button class="button button-primary" type="submit">
+                Publish listing
+              </button>
+            </form>
+          </section>
+
+          <section class="panel" id="governance">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label">Governance</p>
+                <h2>WBV votes and WBC funding</h2>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section
-        class="section section-economy"
-        id="economy"
-        data-section="economy"
-      >
-        <div class="section-frame">
-          <div class="section-heading reveal">
-            <p class="section-label">Economy</p>
-            <h2>Utility and trust are separated on purpose.</h2>
-            <p>
-              The protocol uses one token to move value and another to anchor
-              reputation, governance, and counterparty filtering.
-            </p>
-          </div>
+            <div class="treasury-meter">
+              <div class="treasury-meter__fill" id="treasury-fill"></div>
+            </div>
 
-          <div class="economy-rows">
-            <article class="economy-row reveal">
-              <span class="economy-mark">$WBC</span>
-              <div class="economy-copy">
-                <h3>Coordination and settlement</h3>
+            <div class="row-list" id="proposal-list"></div>
+
+            <form class="inline-form" id="proposal-form">
+              <div class="form-head">
+                <h3>Submit a proposal</h3>
                 <p>
-                  Funds initiatives, pays for services, and carries exchange
-                  across the Worldblock marketplace.
+                  Proposals link back to an issue node and enter the voting and
+                  funding flow immediately.
                 </p>
               </div>
-            </article>
 
-            <article class="economy-row reveal">
-              <span class="economy-mark">$WBV</span>
-              <div class="economy-copy">
-                <h3>Soul-bound voting power</h3>
+              <div class="form-grid">
+                <label class="field">
+                  <span>Title</span>
+                  <input id="proposal-title" name="title" required />
+                </label>
+
+                <label class="field">
+                  <span>Linked issue</span>
+                  <select id="proposal-issue" name="issue" required></select>
+                </label>
+
+                <label class="field">
+                  <span>Requested WBC</span>
+                  <input
+                    id="proposal-request"
+                    name="request"
+                    type="number"
+                    min="500"
+                    step="100"
+                    value="8000"
+                    required
+                  />
+                </label>
+              </div>
+
+              <label class="field">
+                <span>Summary</span>
+                <textarea
+                  id="proposal-summary"
+                  name="summary"
+                  rows="3"
+                  required
+                ></textarea>
+              </label>
+
+              <button class="button button-primary" type="submit">
+                Queue proposal
+              </button>
+            </form>
+          </section>
+        </section>
+
+        <section class="intelligence-grid">
+          <section class="panel" id="knowledge">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label">Knowledge</p>
+                <h2>Contribution-backed learning system</h2>
+              </div>
+            </div>
+
+            <div class="knowledge-list" id="knowledge-list"></div>
+
+            <form class="inline-form" id="knowledge-form">
+              <div class="form-head">
+                <h3>Publish open knowledge</h3>
                 <p>
-                  Signals contribution, strengthens governance, and helps users
-                  identify more trustworthy participants.
+                  Knowledge entries reward the contributor with soul-bound WBV
+                  and expand the shared learning layer.
                 </p>
               </div>
-            </article>
 
-            <article class="economy-row reveal">
-              <span class="economy-mark">Adaptive</span>
-              <div class="economy-copy">
-                <h3>Supply that responds to activity</h3>
-                <p>
-                  WBC is described with an adaptive supply mechanism that
-                  adjusts as network demand expands.
-                </p>
+              <div class="form-grid">
+                <label class="field">
+                  <span>Title</span>
+                  <input id="knowledge-title" name="title" required />
+                </label>
+
+                <label class="field">
+                  <span>Domain</span>
+                  <input id="knowledge-domain" name="domain" required />
+                </label>
               </div>
-            </article>
 
-            <article class="economy-row reveal">
-              <span class="economy-mark">stETH</span>
-              <div class="economy-copy">
-                <h3>Financial launch backing</h3>
-                <p>
-                  The initial supply concept is financially backed by stETH to
-                  establish a more stable starting base.
-                </p>
+              <label class="field">
+                <span>Summary</span>
+                <textarea
+                  id="knowledge-summary"
+                  name="summary"
+                  rows="3"
+                  required
+                ></textarea>
+              </label>
+
+              <button class="button button-primary" type="submit">
+                Publish knowledge
+              </button>
+            </form>
+          </section>
+
+          <section class="panel" id="adaptive">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label">Adaptive supply</p>
+                <h2>WBC responds to protocol demand</h2>
               </div>
-            </article>
-          </div>
-        </div>
-      </section>
+            </div>
 
-      <section
-        class="section section-applications"
-        id="applications"
-        data-section="applications"
-      >
-        <div class="section-frame">
-          <div class="section-heading reveal">
-            <p class="section-label">Applications</p>
-            <h2>
-              Designed for everyday coordination, not abstract governance.
-            </h2>
-            <p>
-              Worldblock is meant to land in practical workflows where trust,
-              logistics, and exchange already shape daily decisions.
-            </p>
-          </div>
+            <div class="supply-grid">
+              <div class="supply-card">
+                <p class="supply-number" id="supply-target">0 WBC</p>
+                <p class="supply-copy" id="supply-copy">
+                  Recalculate the target supply after new exchange or governance
+                  activity.
+                </p>
+                <button
+                  class="button button-primary button-small"
+                  id="recalculate-supply"
+                  type="button"
+                >
+                  Recalculate supply
+                </button>
+              </div>
 
-          <div class="application-list">
-            <article class="application-row reveal">
-              <span class="application-index">01</span>
-              <h3>Decentralized knowledge system</h3>
-              <p>
-                Open educational content, collaborative self-learning, and
-                contributor recognition through trust signals.
-              </p>
-            </article>
+              <div class="supply-bars" id="supply-bars"></div>
+            </div>
 
-            <article class="application-row reveal">
-              <span class="application-index">02</span>
-              <h3>Business exchange for services and products</h3>
-              <p>
-                Native settlement for offerings, with WBV helping surface more
-                reliable providers and higher-quality supply.
-              </p>
-            </article>
+            <div class="subhead">
+              <h3>Activity feed</h3>
+              <span id="activity-count">0</span>
+            </div>
+            <div class="activity-feed" id="activity-feed"></div>
+          </section>
+        </section>
 
-            <article class="application-row reveal">
-              <span class="application-index">03</span>
-              <h3>Resource rental marketplace</h3>
-              <p>
-                Tools, equipment, and spaces can be listed and rented with
-                clearer counterparty trust.
-              </p>
-            </article>
-
-            <article class="application-row reveal">
-              <span class="application-index">04</span>
-              <h3>Skill sharing and freelance work</h3>
-              <p>
-                Professionals and hobbyists exchange labor with tokenized
-                settlement and contribution-based endorsements.
-              </p>
-            </article>
-
-            <article class="application-row reveal">
-              <span class="application-index">05</span>
-              <h3>Local community projects</h3>
-              <p>
-                Neighborhood initiatives, environmental efforts, and cultural
-                programs can be proposed, funded, and managed in public.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-final" id="final" data-section="final">
-        <div class="section-frame final-frame reveal">
-          <p class="section-label">Build</p>
-          <h2>Coordinate globally. Exchange locally. Learn in public.</h2>
+        <footer class="workspace-footer">
           <p>
-            Worldblock treats the planet as a shared operating surface for
-            issues, resources, and trust.
+            Built from the supplied Worldblock whitepaper summary. Reference:
+            Satoshi Nakamoto,
+            <em>Bitcoin: A Peer-to-Peer Electronic Cash System</em>, 2008.
           </p>
-
-          <div class="hero-actions">
-            <a
-              class="button button-primary"
-              href="https://github.com/okok147/Worldblock"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open the repo
-            </a>
-            <a class="button button-secondary" href="#top">Back to top</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="section-frame">
-        <p>
-          Reference: Satoshi Nakamoto,
-          <em>Bitcoin: A Peer-to-Peer Electronic Cash System</em>, 2008.
-        </p>
-        <p>Images: NASA Earth at Night and NASA Blue Marble.</p>
-      </div>
-    </footer>
+          <p>Imagery: NASA Earth at Night and NASA Blue Marble.</p>
+        </footer>
+      </main>
+    </div>
   </body>
 </html>
