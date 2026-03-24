@@ -6,7 +6,7 @@
     <title>Worldblock Protocol Simulator</title>
     <meta
       name="description"
-      content="Worldblock protocol simulator with dual maps, WBC exchange, WBV governance, knowledge rewards, and adaptive supply."
+      content="Worldblock protocol simulator with staged business plans, proof-backed validation, WBC exchange, WBV governance, and adaptive supply."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,7 +29,9 @@
             </div>
           </div>
           <p class="sidebar-note">
-            Browser-based implementation of the supplied whitepaper flows.
+            Browser-based implementation of the supplied whitepaper flows, now
+            including staged business plans, public proof, and gated fund
+            release.
           </p>
         </div>
 
@@ -37,6 +39,7 @@
           <button class="nav-button is-active" data-jump="#command-center">
             Command center
           </button>
+          <button class="nav-button" data-jump="#plans">Plans</button>
           <button class="nav-button" data-jump="#maps">Dual maps</button>
           <button class="nav-button" data-jump="#exchange">Exchange</button>
           <button class="nav-button" data-jump="#governance">Governance</button>
@@ -71,8 +74,9 @@
         <section class="sidebar-panel sidebar-panel--media">
           <img src="assets/blue-marble.jpg" alt="Blue Marble image of Earth" />
           <p>
-            Worldblock connects issues, resources, proposals, and learning on
-            one persistent protocol surface.
+            Worldblock connects issues, resources, proposals, business plans,
+            validation committees, and treasury release on one persistent
+            protocol surface.
           </p>
         </section>
       </aside>
@@ -83,20 +87,21 @@
             <p class="eyebrow">Worldblock protocol simulator</p>
             <h1>Command center</h1>
             <p class="workspace-copy">
-              Issue visibility, resource routing, WBC exchange, WBV trust, and
-              adaptive supply in one working browser application.
+              Issue visibility, plan staging, proof-backed validation, WBC
+              exchange, WBV trust, and adaptive supply in one working browser
+              application.
             </p>
           </div>
 
           <div class="workspace-actions">
-            <button class="button button-primary" data-jump="#listing-form">
-              List resource
+            <button class="button button-primary" data-jump="#plans">
+              Open plan room
             </button>
             <button class="button button-secondary" data-jump="#proposal-form">
               New proposal
             </button>
-            <button class="button button-secondary" data-jump="#knowledge-form">
-              Add knowledge
+            <button class="button button-secondary" data-jump="#proof-form">
+              Submit proof
             </button>
           </div>
         </header>
@@ -123,9 +128,208 @@
             <strong id="metric-steth">0</strong>
           </article>
           <article class="metric">
-            <span>Trusted providers</span>
-            <strong id="metric-trusted">0</strong>
+            <span>Open plans</span>
+            <strong id="metric-plans">0</strong>
           </article>
+          <article class="metric">
+            <span>Released WBC</span>
+            <strong id="metric-released">0</strong>
+          </article>
+        </section>
+
+        <section class="plans-grid" id="plans">
+          <section class="panel panel-plan-overview">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label">Idea and business plan</p>
+                <h2>Milestone-gated execution plan</h2>
+              </div>
+
+              <label class="field-inline field-inline--compact">
+                <span>Plan</span>
+                <select id="plan-select"></select>
+              </label>
+            </div>
+
+            <div class="plan-hero">
+              <div>
+                <h3 id="plan-title">Select a plan</h3>
+                <p class="plan-copy" id="plan-idea">
+                  Idea, business model, and release logic appear here.
+                </p>
+              </div>
+              <div class="plan-tags" id="plan-tags"></div>
+            </div>
+
+            <div class="plan-columns">
+              <article class="plan-block">
+                <h3>Business model</h3>
+                <p id="plan-business-model">
+                  Treasury release logic becomes visible when a plan is
+                  selected.
+                </p>
+              </article>
+              <article class="plan-block">
+                <h3>Target users</h3>
+                <p id="plan-beneficiaries">
+                  Beneficiaries, operators, and counterparties appear here.
+                </p>
+              </article>
+            </div>
+
+            <div class="plan-metrics" id="plan-metrics"></div>
+          </section>
+
+          <section class="panel panel-stage-control">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label">Stage gates</p>
+                <h2>Stage 1 / 2 / 3 milestones</h2>
+              </div>
+              <span class="status-chip" id="plan-status">Awaiting plan</span>
+            </div>
+
+            <p class="inspector-copy" id="plan-status-copy">
+              Select a plan to inspect proof requirements, validators, and
+              treasury release conditions.
+            </p>
+
+            <div class="stage-lane" id="stage-lane"></div>
+
+            <div class="milestone-sheet">
+              <div class="subhead">
+                <h3 id="selected-stage-title">Stage</h3>
+                <span class="toolbar-value" id="selected-stage-status">
+                  Awaiting proof
+                </span>
+              </div>
+              <p class="plan-copy" id="selected-stage-objective">
+                Stage objective, tranche size, and validation state appear here.
+              </p>
+              <dl class="detail-grid" id="selected-stage-details"></dl>
+
+              <div class="validator-list" id="validator-list"></div>
+
+              <div class="action-group action-group--inline">
+                <button class="button button-primary" id="release-stage">
+                  Release next tranche
+                </button>
+                <button
+                  class="button button-secondary"
+                  data-jump="#proof-form"
+                  type="button"
+                >
+                  Submit proof
+                </button>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <section class="plans-detail-grid">
+          <section class="panel" id="proof-room">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label">Proof room</p>
+                <h2>Data, deliverables, and user feedback</h2>
+              </div>
+            </div>
+
+            <div class="proof-list" id="proof-list"></div>
+
+            <form class="inline-form" id="proof-form">
+              <div class="form-head">
+                <h3>Submit a proof package</h3>
+                <p>
+                  Every stage requires public evidence before crowd, experts,
+                  and committee can validate the next release.
+                </p>
+              </div>
+
+              <div class="form-grid">
+                <label class="field">
+                  <span>Plan</span>
+                  <select id="proof-plan" name="plan" required></select>
+                </label>
+
+                <label class="field">
+                  <span>Stage</span>
+                  <select id="proof-stage" name="stage" required></select>
+                </label>
+
+                <label class="field field--full">
+                  <span>Package title</span>
+                  <input id="proof-title" name="title" required />
+                </label>
+              </div>
+
+              <label class="field">
+                <span>Data / metrics</span>
+                <textarea
+                  id="proof-metrics"
+                  name="metrics"
+                  rows="3"
+                  required
+                ></textarea>
+              </label>
+
+              <label class="field">
+                <span>Deliverables</span>
+                <textarea
+                  id="proof-deliverables"
+                  name="deliverables"
+                  rows="3"
+                  required
+                ></textarea>
+              </label>
+
+              <label class="field">
+                <span>User feedback</span>
+                <textarea
+                  id="proof-feedback"
+                  name="feedback"
+                  rows="3"
+                  required
+                ></textarea>
+              </label>
+
+              <button class="button button-primary" type="submit">
+                Publish proof
+              </button>
+            </form>
+          </section>
+
+          <section class="panel panel-transparency">
+            <div class="panel-head">
+              <div>
+                <p class="panel-label">Transparency</p>
+                <h2>Distribution logic and validation result</h2>
+              </div>
+              <span class="toolbar-value" id="ledger-count">0 entries</span>
+            </div>
+
+            <div class="transparency-grid">
+              <section class="transparency-block">
+                <div class="subhead">
+                  <h3>Distribution logic</h3>
+                  <span class="toolbar-value" id="logic-scope"
+                    >Live formula</span
+                  >
+                </div>
+                <div class="logic-list" id="distribution-logic"></div>
+              </section>
+
+              <section class="transparency-block">
+                <div class="subhead">
+                  <h3>Validation and release ledger</h3>
+                  <span class="toolbar-value" id="validation-summary">
+                    0 events
+                  </span>
+                </div>
+                <div class="ledger-feed" id="ledger-feed"></div>
+              </section>
+            </div>
+          </section>
         </section>
 
         <section class="workspace-grid">
@@ -346,8 +550,8 @@
               <div class="form-head">
                 <h3>Submit a proposal</h3>
                 <p>
-                  Proposals link back to an issue node and enter the voting and
-                  funding flow immediately.
+                  Proposals link back to an issue node and create a staged plan
+                  for proof, validation, and treasury release.
                 </p>
               </div>
 
@@ -453,8 +657,8 @@
               <div class="supply-card">
                 <p class="supply-number" id="supply-target">0 WBC</p>
                 <p class="supply-copy" id="supply-copy">
-                  Recalculate the target supply after new exchange or governance
-                  activity.
+                  Recalculate the target supply after new exchange, governance,
+                  or staged treasury activity.
                 </p>
                 <button
                   class="button button-primary button-small"
